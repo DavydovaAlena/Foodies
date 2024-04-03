@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="remote_service_http_error">"Ошибка сервиса"</string>
+    <string name="remote_client_http_error">"Произошла ошибка"</string>
+    <string name="network_exception">"Отсутствует подключение к интернету"</string>
+    <string name="unexpected_error">"Произошла непредвиденная ошибка"</string>
+    <string name="unknown_error">"Произошла неизвестная ошибка"</string>
+</resources>
