@@ -55,7 +55,6 @@ class CatalogViewModel @Inject constructor(
 
             is CatalogEvent.ChangeCategory -> {
 
-                _catalogState.update { it.copy(load = true) }
                 viewModelScope.launch {
                     val updateProducts = when (event.tags.isEmpty()) {
                         true -> foodiesUseCase.getProductsByCategory(event.category)
@@ -78,11 +77,9 @@ class CatalogViewModel @Inject constructor(
                         }
                     }
                 }
-                _catalogState.update { it.copy(load = false) }
             }
 
             is CatalogEvent.AddProductToCart -> {
-                _catalogState.update { it.copy(load = true) }
                 viewModelScope.launch {
                     val result =
                         if (event.current == 0) {
@@ -122,11 +119,9 @@ class CatalogViewModel @Inject constructor(
                         }
                     }
                 }
-                _catalogState.update { it.copy(load = false) }
             }
 
             is CatalogEvent.RemoveProductFromCart -> {
-                _catalogState.update { it.copy(load = true) }
                 viewModelScope.launch {
                     val result =
                         if (event.current == 1) {
@@ -167,5 +162,5 @@ sealed class CatalogEvent {
 
 data class CatalogScreenState(
     val error: String? = null,
-    val load: Boolean = true
+    val load: Boolean = false
 )

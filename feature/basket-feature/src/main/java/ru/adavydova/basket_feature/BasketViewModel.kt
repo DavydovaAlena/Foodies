@@ -43,7 +43,7 @@ class BasketViewModel @Inject constructor(
         viewModelScope.launch {
             when (val result = useCase.getAllProductsFromCart()) {
                 is Result.Error -> {
-
+                    Log.e("BasketVM", result.error)
                 }
 
                 is Result.Success -> {
@@ -62,7 +62,6 @@ class BasketViewModel @Inject constructor(
     fun onEvent(event: BasketEvent) {
         when (event) {
             is BasketEvent.AddProductToCart -> {
-                _basketState.update { it.copy(load = !_basketState.value.load) }
                 viewModelScope.launch {
                     val result =
                         if (event.basket.numOfPrices == 0) {
@@ -83,7 +82,6 @@ class BasketViewModel @Inject constructor(
                         }
                     }
                 }
-                _basketState.update { it.copy(load = !_basketState.value.load) }
 
             }
 
@@ -107,7 +105,6 @@ class BasketViewModel @Inject constructor(
             }
 
             is BasketEvent.RemoveProductFromCart -> {
-                _basketState.update { it.copy(load = !_basketState.value.load) }
                 viewModelScope.launch {
                     val result =
                         if (event.basket.numOfPrices == 1) {
@@ -127,7 +124,6 @@ class BasketViewModel @Inject constructor(
                         }
                     }
                 }
-                _basketState.update { it.copy(load = !_basketState.value.load) }
 
             }
 

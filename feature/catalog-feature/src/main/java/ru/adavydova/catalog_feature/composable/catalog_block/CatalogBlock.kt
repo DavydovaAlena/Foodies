@@ -1,5 +1,6 @@
 package ru.adavydova.catalog_feature.composable.catalog_block
 
+import android.util.Log
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -58,6 +59,7 @@ fun CatalogBlock(
         load = catalogState.load,
         data = data,
         catalogItem = { item, count ->
+
 
             CatalogItemWithStatus(
                 oldValue = item.priceOld,
