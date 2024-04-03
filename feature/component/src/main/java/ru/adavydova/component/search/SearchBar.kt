@@ -136,7 +136,7 @@ fun SearchBar(
 val TextFieldDefaults.colorSearchBar: TextFieldColors
     @Composable
     get() =
-        TextFieldDefaults.colors(
+        colors(
             focusedLeadingIconColor = MaterialTheme.colorScheme.onSurfaceVariant,
             unfocusedLeadingIconColor = MaterialTheme.colorScheme.onSurfaceVariant,
             unfocusedPlaceholderColor = MaterialTheme.colorScheme.onSurfaceVariant,

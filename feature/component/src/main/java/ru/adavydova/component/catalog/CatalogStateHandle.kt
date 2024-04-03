@@ -86,7 +86,7 @@ fun <T> CatalogStateHandle(
         else -> {
             CatalogErrorState(
                 modifier = modifier,
-                error = error ?: ""
+                error = error
             )
         }
     }
